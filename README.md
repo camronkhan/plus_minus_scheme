@@ -37,18 +37,18 @@ So, for example, in block #17 of the table:
 - Finally, in call (4) we subtract (car list) from sum and use (car list) as the target, resulting in sum==-20 and target==11.
 
 Here is the resulting trace output:
->(plus-minus (mcons 27 (mcons 6 (mcons 12 (mcons 11 '())))) 0 27)
->(plus-minus (mcons 6 (mcons 12 (mcons 11 '()))) 27 27)
-> >(plus-minus (mcons 12 (mcons 11 '())) 33 27)
-> > (plus-minus (mcons 11 '()) 45 27)
-> > >(plus-minus '() 2 27)
-< < <#f	
-> > >(plus-minus '() -20 27)
-< < <#f
-> > >(plus-minus '() 2 11)
-< < <#f
-> > (plus-minus '() -20 11)
-< < #f
+(plus-minus (mcons 27 (mcons 6 (mcons 12 (mcons 11 '())))) 0 27)
+(plus-minus (mcons 6 (mcons 12 (mcons 11 '()))) 27 27)
+(plus-minus (mcons 12 (mcons 11 '())) 33 27)
+(plus-minus (mcons 11 '()) 45 27)
+(plus-minus '() 2 27)
+#f	
+(plus-minus '() -20 27)
+#f
+(plus-minus '() 2 11)
+#f
+(plus-minus '() -20 11)
+#f
 
 ##Complexity Analysis
 
