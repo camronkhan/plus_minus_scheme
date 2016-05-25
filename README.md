@@ -14,6 +14,7 @@ plus-minus (list sum target)
 	plus-minus(subtract (car list) from sum and use (car list) as target)
 ```
 
+
 ##Explanation
 
 This algorithm solves the problem because it generates all possible sums for all possible targets.  The algorithm either recursively adds or subtracts the first element in the current list (i.e., car list) to the sum and then either uses or does not use the first element in the current list as the target – against which the sum is compared for equality.  In other words, it recursively adds and subtracts (car list) from sum – thus, performing a depth-first, pre-order traversal on a binary tree – for each list possibility – i.e., using or not using (car list) as a target.  For example, below is the binary tree traversal produced for the list {27 6 12 11} irrespective of target usage:
@@ -36,19 +37,6 @@ So, for example, in block #17 of the table:
 - In call (3), however, we return to adding (car list) to sum but now also use (car list) as the target, resulting in sum==2 and target==11.
 - Finally, in call (4) we subtract (car list) from sum and use (car list) as the target, resulting in sum==-20 and target==11.
 
-Here is the resulting trace output:
-(plus-minus (mcons 27 (mcons 6 (mcons 12 (mcons 11 '())))) 0 27)
-(plus-minus (mcons 6 (mcons 12 (mcons 11 '()))) 27 27)
-(plus-minus (mcons 12 (mcons 11 '())) 33 27)
-(plus-minus (mcons 11 '()) 45 27)
-(plus-minus '() 2 27)
-#f	
-(plus-minus '() -20 27)
-#f
-(plus-minus '() 2 11)
-#f
-(plus-minus '() -20 11)
-#f
 
 ##Complexity Analysis
 
